@@ -3,13 +3,9 @@ import pandas as pd
 import libpysal.weights as lpw
 
 # function that makes coordincates of data points
-def make_coords(N_points, xm, xM, ym, yM):
-    # Define the range of coordinate values
-    xmin, ymin = xm, ym
-    xmax, ymax = xM, yM
-    
-    x_coords = np.random.uniform(xmin, xmax, size=N_points)
-    y_coords = np.random.uniform(ymin, ymax, size=N_points)
+def make_coords(N_points, xmu, xsd, ymu, ysd):  
+    x_coords = np.random.normal(xmu, xsd, size=N_points)
+    y_coords = np.random.normal(ymu, ysd, size=N_points)
     coords = np.column_stack((x_coords, y_coords))
     return coords
 
