@@ -9,19 +9,19 @@ def make_coords(N_points, xmu, xsd, ymu, ysd):
     coords = np.column_stack((x_coords, y_coords))
     return coords
 
-    # function that calculates distances between coordinates
-    def distances(coords):
-        N = len(coords)
+# function that calculates distances between coordinates
+def distances(coords):
+    N = len(coords)
         
-        # Initialize an empty distances matrix
-        distances = np.zeros((N, N))
+    # Initialize an empty distances matrix
+    distances = np.zeros((N, N))
 
-        # Compute the euclidean distance between pair of coords
-        for i in range(N):
-            for j in range(i+1, N):
-                distances[i,j] = distances[j,i] = np.linalg.norm(coords[i] - coords[j])       
+    # Compute the euclidean distance between pair of coords
+    for i in range(N):
+        for j in range(i+1, N):
+            distances[i,j] = distances[j,i] = np.linalg.norm(coords[i] - coords[j])       
 
-        return distances
+    return distances
 
 # function that makes a weight matrix
 def make_weight(coords, thres):
